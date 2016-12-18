@@ -1,6 +1,6 @@
 /*\
  |*|
- |*|  :: cookie.js ::
+ |*|  :: chocolate-chip.js ::
  |*|
  |*|  Features
  |*|
@@ -12,9 +12,9 @@
  |*|
  |*|
  |*|  Written by Robert Yarborough  ( http://www.robert-yarborough.com )
-
-
-      Algorithm
+ |*|
+ |*|
+ |*|  Algorithm
  |*|
  |*|
  |*|  Use-Cases:
@@ -31,9 +31,9 @@
 
 
 // Create Constructor Object to inherit from here...
-var myRevealingModule = (function () {
+var chocolateChip = (function () {
     // create cookie object that has all method utilities needed
-    var Cookie = {
+    var cookie = {
         getItem: function (sKey) {
             if (!sKey) { return null; }
             return decodeURIComponent(document.cookie.replace(new RegExp("(?:(?:^|.*;)\\s*" + encodeURIComponent(sKey).replace(/[\-\.\+\*]/g, "\\$&") + "\\s*\\=\\s*([^;]*).*$)|^.*$"), "$1")) || null;
@@ -80,23 +80,23 @@ var myRevealingModule = (function () {
     var privateID = document.getElementById("cookie");
 
     // create closures for private methods exsposed later publicly/window scope
-    // 1.   Set Cookie  ( Basic Implementation )
-    function publicFunction() {
-        Cookie.setItem('newCookie', 'newValue');
-        if (Cookie.hasItem('newCookie')){
+    // 1.   Set cookie  ( Basic Implementation )
+    function setID() {
+        cookie.setItem('newCookie', 'newValue');
+        if (cookie.hasItem('newCookie')){
             console.log('has item newCookie');
         }
     }
 
-    //  2.  Set Cookie  ( Event Listener Implementation )
-    function publicGetID(){
+    //  2.  Set cookie  ( Event Listener Implementation )
+    function getID(){
         return privateID.addEventListener("click", function () {
-            Cookie.setItem('BOBBYS', 'WORLD');
+            cookie.setItem('BOBBYS', 'WORLD');
         }, true);
     }
 
     // 3.
-    function publicCreateBeacon() {
+    function createBeacon() {
         console.log('pixel' + 'beacon');
 
         //create image tag
@@ -106,15 +106,18 @@ var myRevealingModule = (function () {
 
     }
 
-    //<editor-fold desc="Description">
-    /*function queryManager(value) {
+    //<editor-fold desc="query string parameter getter/setter constructor function">
+    /*
+     @param url {String}
+     */
+    /*function queryManager(url) {
         this.value = value;
         return value;
-    }
-    //</editor-fold>
+    }*/
+    //</editor-fold>//
 
-    // 4.
-    function publicCreateiFrame() {
+     //4.
+    function createiFrame() {
         //create a.iframe.html
         var aFrame = document.createElement('iFrame');
         //add id attribute to iframe element
@@ -144,7 +147,7 @@ var myRevealingModule = (function () {
     * @param callback {Function} to callback on completion
     * @param errback {Function} to callback on error
     */
-    function xdr(url, method, data, callback, errback) {
+    function crossDomainRequest(url, method, data, callback, errback) {
         var req;
 
         if(XMLHttpRequest) {
@@ -178,10 +181,11 @@ var myRevealingModule = (function () {
     }
 
     return {
-        start: publicFunction,
-        id: publicGetID,
-        beacon: publicCreateBeacon,
-        cors: xdr
+        setID: setID,
+        getID: getID,
+        iframe: createiFrame,
+        beacon: createBeacon,
+        cors: crossDomainRequest
 
     };
 
@@ -192,12 +196,12 @@ function onLoad(que) {
 
     if (onLoad.loaded){
         window.setTimeout(que, 0);
-        myRevealingModule.start();
-        console.log(myRevealingModule, 'started');
+        chocolateChip.start();
+        console.log(chocolateChip, 'started');
     }else if (window.addEventListener){
         window.addEventListener("load", que, false);
-        myRevealingModule.start();
-        console.log('registering events', myRevealingModule.start);
+        chocolateChip.start();
+        console.log('registering events', chocolateChip.start);
     }else if (window.attachEvent){
         window.attachEvent("onload", que);
         console.log('ie8 and earlier use this instead');
@@ -213,8 +217,8 @@ onLoad.loaded = false;
 //trigger event when dom element is clicked
 if (document.getElementById("cookie")){
     //initialize the id event
-    myRevealingModule.id();
-    myRevealingModule.iframe();
+    chocolateChip.id();
+    chocolateChip.iframe();
     //register function to set the flag when the document does load
     onLoad(function () {
         onLoad.loaded = true;

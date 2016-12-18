@@ -13,12 +13,12 @@
 
     if (onLoad.loaded){
         window.setTimeout(que, 0);
-        myRevealingModule.start();
-        console.log(myRevealingModule, 'started');
+        chocolateChip.start();
+        console.log(chocolateChip, 'started');
     }else if (window.addEventListener){
         window.addEventListener("load", que, false);
-        myRevealingModule.start();
-        console.log('registering events', myRevealingModule.start);
+        chocolateChip.start();
+        console.log('registering events', chocolateChip.start);
     }else if (window.attachEvent){
         window.attachEvent("onload", que);
         console.log('ie8 and earlier use this instead');
@@ -34,8 +34,8 @@ onLoad.loaded = false;
 //trigger event when dom element is clicked
 if (document.getElementById("cookie")){
     //initialize the id event
-    myRevealingModule.id();
-    myRevealingModule.iframe();
+    chocolateChip.id();
+    chocolateChip.iframe();
     //register function to set the flag when the document does load
     onLoad(function () {
         onLoad.loaded = true;
