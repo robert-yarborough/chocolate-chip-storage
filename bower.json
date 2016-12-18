@@ -1,0 +1,23 @@
+{
+  "name": "cookie-framework",
+  "description": "",
+  "main": "cookie.js",
+  "authors": [
+    "bobby5develops <bobby5develops@gmail.com>"
+  ],
+  "license": {
+    "type": "MIT",
+    "url": "https://github.com/h5bp/html5-boilerplate/blob/master/LICENSE.txt"
+  },
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.1.1"
+  }
+}

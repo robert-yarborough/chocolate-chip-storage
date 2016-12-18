@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="532279af-1b65-4fe2-9fcf-858c8e2d0a40" name="localhost:8888" url="http://localhost:8888">
+        <fileTransfer port="0" mountedRoot="/Applications/MAMP/htdocs/cookie-framework" accessType="MOUNT" />
+      </webServer>
+    </option>
+  </component>
+</project>
