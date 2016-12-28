@@ -17,13 +17,15 @@
  |*|  Algorithm
  |*|
  |*|
- |*|  Use-Cases:
+ |*|  Cookie Use-Cases:
  |*|
- |*|  * Cookie.setItem(name, value[, end[, path[, domain[, secure]]]])
- |*|  * Cookie.getItem(name)
- |*|  * Cookie.removeItem(name[, path[, domain]])
- |*|  * Cookie.hasItem(name)
- |*|  * Cookie.keys()
+ |*|  * chocolateChip.cookie.setItem(name, value[, end[, path[, domain[, secure]]]])
+ |*|  * chocolateChip.cookie.getItem(name)
+ |*|  * chocolateChip.cookie.removeItem(name[, path[, domain]])
+ |*|  * chocolateChip.cookie.hasItem(name)
+ |*|  * chocolateChip.cookie.keys()
+ |*|
+ |*|  Iframe Use-Cases:
  |*|
 \*/
 'use strict';
@@ -144,8 +146,8 @@ var chocolateChip = (function () {
     * @param url {String}
     * @param method {String} HTTP verb ('GET', 'POST', 'DELETE', etc.)
     * @param data {String} request body
-    * @param callback {Function} to callback on completion
-    * @param errback {Function} to callback on error
+    * @param callback {Function} to callback on completion ( success )
+    * @param errback {Function} to callback on error ( error handler )
     */
     function crossDomainRequest(url, method, data, callback, errback) {
         var req;
