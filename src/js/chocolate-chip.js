@@ -1,3 +1,6 @@
+/**
+ * Created by ryarborough on 12/28/16.
+ */
 /*\
  |*|
  |*|  :: chocolate-chip.js ::
@@ -27,8 +30,12 @@
  |*|
  |*|  Iframe Use-Cases:
  |*|
-\*/
+ \*/
 'use strict';
+
+// TODO: This library should be compiled into one script, named chocalate-chip.js.
+// TODO: The global functions should be used in a procedural portion / or module where they get invoked and used procedurally
+
 
 
 
@@ -113,27 +120,29 @@ var chocolateChip = (function () {
      @param url {String}
      */
     /*function queryManager(url) {
-        this.value = value;
-        return value;
-    }*/
+     this.value = value;
+     return value;
+     }*/
     //</editor-fold>//
 
-     //4.
+    //4.
     function createiFrame() {
         //create a.iframe.html
-        var aFrame = document.createElement('iFrame');
+        var firstFrame = document.createElement('iFrame');
         //add id attribute to iframe element
-        aFrame.id =  'aFrame';
+        firstFrame.id =  'aFrame';
         //add src attribute to iframe element
-        aFrame.src = 'http://a.iframe:8888'; // the // makes sure this string will work on http/https
+        firstFrame.src = 'http://a.iframe:8888'; // the // makes sure this string will work on http/https
         //add async attribute to iframe element
-        aFrame.async = true;
+        firstFrame.async = true;
+        //set css background-color for firstFrame
+        firstFrame.contentWindow.document.body.style.backgroundColor = "red";
         //create iframe document references
         //var aFrameDom = aFrame.contentWindow.document;
         //create a reference to the parent window scope
         //var parentDom = document.getElementsByTagName('body')[0];
 
-        document.body.appendChild(aFrame);//append iframe a, to bottom of body in main html file
+        document.body.appendChild(firstFrame);//append iframe a, to bottom of body in main html file
 
     }
 
@@ -142,13 +151,13 @@ var chocolateChip = (function () {
 
 
     /* Make a Cross-Domain request to url and callback.
-    *
-    * @param url {String}
-    * @param method {String} HTTP verb ('GET', 'POST', 'DELETE', etc.)
-    * @param data {String} request body
-    * @param callback {Function} to callback on completion ( success )
-    * @param errback {Function} to callback on error ( error handler )
-    */
+     *
+     * @param url {String}
+     * @param method {String} HTTP verb ('GET', 'POST', 'DELETE', etc.)
+     * @param data {String} request body
+     * @param callback {Function} to callback on completion ( success )
+     * @param errback {Function} to callback on error ( error handler )
+     */
     function crossDomainRequest(url, method, data, callback, errback) {
         var req;
 
@@ -227,8 +236,3 @@ if (document.getElementById("cookie")){
         console.log('onLoad event has triggered!');
     });
 }
-
-
-
-
-
